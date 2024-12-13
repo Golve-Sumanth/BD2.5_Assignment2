@@ -217,16 +217,16 @@ app.get('/stocks/sort/growth', (req, res) => {
   res.json({ stocks: sortedStocks });
 });
 
-app.get('/stocks/filter/exchange', (req, res) => {
-  let exchange = req.query.exchange.toLowerCase();
+app.get('/stocks/filter/:exchange', (req, res) => {
+  let exchange = req.params.exchange.toLowerCase();
   let filterStocks = stocks.filter((stock) =>
     filterByExchange(stock, exchange)
   );
   res.json({ stocks: filterStocks });
 });
 
-app.get('/stocks/filter/industry', (req, res) => {
-  let industry = req.query.industry.toLowerCase();
+app.get('/stocks/filter/:industry', (req, res) => {
+  let industry = req.params.industry.toLowerCase();
   let filterStocks = stocks.filter((stock) =>
     filterByIndustry(stock, industry)
   );
