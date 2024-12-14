@@ -217,7 +217,7 @@ app.get('/stocks/sort/growth', (req, res) => {
   res.json({ stocks: sortedStocks });
 });
 
-app.get('/stocks/filter/:exchange', (req, res) => {
+app.get('/stocks/exchange/:exchange', (req, res) => {
   let exchange = req.params.exchange.toLowerCase();
   let filterStocks = stocks.filter((stock) =>
     filterByExchange(stock, exchange)
@@ -225,7 +225,7 @@ app.get('/stocks/filter/:exchange', (req, res) => {
   res.json({ stocks: filterStocks });
 });
 
-app.get('/stocks/filter/:industry', (req, res) => {
+app.get('/stocks/industry/:industry', (req, res) => {
   let industry = req.params.industry.toLowerCase();
   let filterStocks = stocks.filter((stock) =>
     filterByIndustry(stock, industry)
